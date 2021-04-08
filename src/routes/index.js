@@ -1,4 +1,4 @@
-const Page = require('../pages/Page');
+const Page = require('../models/Page');
 
 const router = require('express').Router();
 
