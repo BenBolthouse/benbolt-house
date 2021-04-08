@@ -7,12 +7,12 @@ class Page {
         description: options.description || 'Page Description',
         noindex: options.noindex !== undefined ? options.noindex : false,
         keywords: options.keywords !== undefined
-          ? this.formatKeywordsFromArray(options.keywords)
+          ? Page.formatKeywordsFromArray(options.keywords)
           : [],
       },
     };
   }
-  formatKeywordsFromArray(array) {
+  static formatKeywordsFromArray(array) {
     let out = '';
     if (array.length) {
       array.forEach((k) => {
