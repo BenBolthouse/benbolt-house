@@ -4,8 +4,9 @@ div, form, ul, li, a {
 }
 
 // Top level rules
-.page {
+body {
   display: block;
+  overflow: hidden;
   height: 100vh;
   width: 100vw;
 }
