@@ -7,7 +7,7 @@
     "dev": "nodemon -r dotenv/config ./bin/run",
     "lint": "eslint *.js",
     "test": "node -c *.js",
-    "sass": "sass --watch ./views:./public/css"
+    "sass": "sass --watch ./views/styles.scss:./public/css/styles.css"
   },
   "dependencies": {
     "colors": "^1.4.0",
