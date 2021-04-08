@@ -1,1 +1,15 @@
+// Resets
+div, form, ul, li, a {
+  display: grid;
+}
+
+// Top level rules
+.page {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+}
+
+@import './reset';
+@import './type';
 @import './home';

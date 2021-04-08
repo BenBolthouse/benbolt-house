@@ -1,0 +1,84 @@
+$_pxSizes: (
+  (14rem, "14"),
+  (15rem, "15"),
+  (16rem, "16"),
+  (18rem, "18"),
+  (20rem, "20"),
+  (24rem, "24"),
+  (28rem, "28"),
+  (32rem, "32"),
+  (36rem, "36"),
+  (40rem, "40"),
+  (44rem, "44"),
+  (48rem, "48")
+);
+
+@each $s, $t in $_pxSizes {
+  .font-#{$t} {
+    $c: $s / 16;
+    font-size: $c;
+    line-height: $c;
+    min-height: $c;
+  }
+}
+
+@mixin font-14 {
+  font-size: (14rem / 16);
+  line-height: 1rem;
+  min-height: 1rem;
+}
+@mixin font-15 {
+  font-size: (15rem / 16);
+  line-height: 1rem;
+  min-height: 1rem;
+}
+@mixin font-16 {
+  font-size: 1rem;
+  line-height: 1rem;
+  min-height: 1rem;
+}
+@mixin font-18 {
+  font-size: (18rem / 16);
+  line-height: 1.25rem;
+  min-height: 1.25rem;
+}
+@mixin font-20 {
+  font-size: (20rem / 16);
+  line-height: 1.25rem;
+  min-height: 1.25rem;
+}
+@mixin font-24 {
+  font-size: (24rem / 16);
+  line-height: 1.5rem;
+  min-height: 1.5rem;
+}
+@mixin font-28 {
+  font-size: (28rem / 16);
+  line-height: 1.75rem;
+  min-height: 1.75rem;
+}
+@mixin font-32 {
+  font-size: (32rem / 16);
+  line-height: 2rem;
+  min-height: 2rem;
+}
+@mixin font-36 {
+  font-size: (36rem / 16);
+  line-height: 2.25rem;
+  min-height: 2.25rem;
+}
+@mixin font-40 {
+  font-size: (34rem / 16);
+  line-height: 2.5rem;
+  min-height: 2.5rem;
+}
+@mixin font-44 {
+  font-size: (44rem / 16);
+  line-height: 2.75rem;
+  min-height: 2.75rem;
+}
+@mixin font-48 {
+  font-size: (48rem / 16);
+  line-height: 3rem;
+  min-height: 3rem;
+}
