@@ -3,13 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="{{#if head.noindex}}noindex{{else}}index,follow{{/if}}">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <title>{{{head.title}}}</title>
+  {{#if head.description}}<meta name="description" content="{{head.description}}" />{{/if}}
+  {{#if head.keywords}}<meta name="keywords" content="{{head.keywords}}">{{/if}}
+  <title>{{#if head.title}}{{head.title}}{{else}}Ben Bolthouse{{/if}}</title>
 </head>
 <body>
-  
+
   {{{body}}}
-  
+
 </body>
 </html>
