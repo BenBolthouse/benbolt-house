@@ -127,3 +127,6 @@ jspm_packages
 
 # Environment
 .env*
+
+# Ignore css files as they will be compiled from Sass on deployment
+*.css*
