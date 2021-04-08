@@ -32,8 +32,8 @@ app.use((req, res, next) => {
 app.engine('handlebars', expressHbs());
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'views'));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(express.static(path.join(__dirname, '../dist')));
+app.use(favicon(path.join(__dirname, 'favicon.ico')));
 app.use(httpLogger);
 
 // application routes

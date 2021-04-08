@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-const app = require('../app');
-const { port } = require('../config');
-const { logger } = require('../log');
+const app = require('../src/app');
+const { port } = require('../src/config');
+const { logger } = require('../src/log');
 
 const listener = app.listen(port || 0, () => {
   logger.info(`App is listening at http://localhost:${listener.address().port}`);
