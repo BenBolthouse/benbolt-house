@@ -11,6 +11,8 @@ RUN npm i
 
 COPY . .
 
+RUN npx sass views/styles.scss public/css/styles.css
+
 EXPOSE 5000
 
 CMD ["node", "./bin/run"]
