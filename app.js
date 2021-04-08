@@ -6,7 +6,8 @@ const path = require('path');
 const Prismic = require('prismic-javascript');
 const prismicConfig = require('./config/prismic');
 
-// TODO import application routes
+// application routes imports
+const routes = require('./routes');
 
 const app = express();
 
@@ -35,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(httpLogger);
 
-// TODO apply application routes
+// application routes
+app.use('/', routes);
 
 module.exports = app;
