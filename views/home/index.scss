@@ -5,13 +5,13 @@ article.home-page {
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   section {
-    grid-template: auto 10rem / 2rem auto 2rem;
+    grid-template: 5rem auto 7rem / 2rem auto 2rem;
     scroll-snap-align: start;
     position: relative;
     height: 100%;
     width: 100%;
     > .content {
-      grid-row: 1 / 2;
+      grid-row: 2 / 3;
       grid-column: 2 / 3;
     }
     > .scroll-next {
@@ -19,12 +19,14 @@ article.home-page {
       justify-content: center;
       position: absolute;
       right: 0;
-      bottom: 5rem;
+      bottom: 2rem;
       left: 0;
       pointer-events: none;
       height: $size;
       z-index: 100;
       > .push-container {
+        align-content: center;
+        justify-content: center;
         cursor: pointer;
         background-color: blue;
         border-radius: 50%;
@@ -33,6 +35,9 @@ article.home-page {
         width: $size;
         z-index: 101;
         animation: scroll-next-bounce 5s infinite;
+        > ion-icon {
+          font-size: 2rem;
+        }
       }
       @keyframes scroll-next-bounce {
         0% {
@@ -53,21 +58,6 @@ article.home-page {
         100% {
           margin-top: 0rem;
         }
-      }
-    }
-  }
-}
-
-body.landscape article.home-page {
-  section {
-    grid-template-rows: auto 6rem;
-    > .scroll-next {
-      $size: 3rem;
-      bottom: 1.5rem;
-      height: $size;
-      > .push-container {
-        height: $size;
-        width: $size;
       }
     }
   }
