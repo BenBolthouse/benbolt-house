@@ -4,7 +4,8 @@ article.home-page {
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   section {
-    scroll-snap-align: center;
+    scroll-snap-align: start;
+    position: relative;
     height: 90vh;
     width: 100%;
     &.panel-a {
@@ -21,6 +22,26 @@ article.home-page {
     }
     &.panel-e {
       background-color: #ededed;
+      height: 100vh;
+    }
+    > .scroll-next {
+      $size: 5rem;
+      justify-content: center;
+      position: absolute;
+      right: 0;
+      bottom: 2rem;
+      left: 0;
+      pointer-events: none;
+      height: $size;
+      z-index: 100;
+      > .push-container {
+        background-color: blue;
+        border-radius: 50%;
+        pointer-events: initial;
+        height: $size;
+        width: $size;
+        z-index: 101;
+      }
     }
   }
 }
