@@ -1,3 +1,8 @@
+const fs = require('fs');
+const path = require('path');
+
+const { production } = require('../config');
+
 class Page {
   constructor(view, options) {
     this.view = view;
@@ -10,6 +15,10 @@ class Page {
           ? Page.formatKeywordsFromArray(options.keywords)
           : [],
       },
+      modules: options.modules && options.modules.length
+        ? Page.formatModulesFromArray(options.modules)
+        : [],
+      production,
     };
   }
   static formatKeywordsFromArray(array) {
@@ -18,8 +27,20 @@ class Page {
       array.forEach((k) => {
         out += `${k.toLowerCase()},`;
       });
+      return out.slice(0, out.length - 1);
     }
-    return out.slice(0, out.length - 1);
+    return [];
+  }
+  static formatModulesFromArray(array) {
+    const out = [];
+    if (array.length) {
+      array.forEach((m) => {
+        const exs = fs.existsSync(path.join(__dirname, '..', 'static', `module.${m}.js`));
+        if (exs) out.push(`module.${m}.js`);
+      });
+      return out;
+    }
+    return [];
   }
 }
 
