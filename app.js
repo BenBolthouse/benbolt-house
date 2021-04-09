@@ -1,4 +1,5 @@
 const { httpLogger } = require('./log');
+const config = require('./config');
 const express = require('express');
 const expressHbs = require('express-handlebars');
 const favicon = require('serve-favicon');
@@ -32,8 +33,8 @@ app.use((req, res, next) => {
 app.engine('handlebars', expressHbs());
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'views'));
-app.use(express.static(path.join(__dirname, '../dist')));
-app.use(favicon(path.join(__dirname, 'favicon.ico')));
+app.use(express.static(path.join(__dirname, 'static')));
+app.use(favicon(path.join(__dirname, 'static', 'favicon.ico')));
 app.use(httpLogger);
 
 // application routes

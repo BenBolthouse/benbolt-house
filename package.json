@@ -5,9 +5,8 @@
   "scripts": {
     "start": "node ./bin/run",
     "dev": "nodemon -r dotenv/config ./bin/run",
-    "lint": "eslint *.js",
-    "test": "node -c *.js",
-    "sass": "sass --watch src/views/styles.scss dist/styles.css"
+    "build": "webpack",
+    "sass": "sass --watch views/style.scss static/style.css --style compressed"
   },
   "dependencies": {
     "colors": "^1.4.0",
@@ -26,12 +25,11 @@
   },
   "devDependencies": {
     "babel-eslint": "~8.0.1",
+    "css-loader": "^5.2.0",
     "eslint": "~4.18.2",
     "eslint-config-airbnb-base": "~12.0.1",
     "eslint-plugin-import": "~2.7.0",
-    "nodemon": "^1.17.3",
-    "webpack": "^5.31.0",
-    "webpack-cli": "^4.6.0"
+    "nodemon": "^1.17.3"
   },
   "engines": {
     "node": ">=4.8.1",

@@ -4,8 +4,8 @@ article.home-page {
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   section {
-    scroll-snap-align: start;
-    height: 100vh;
+    scroll-snap-align: center;
+    height: 90vh;
     width: 100%;
     &.panel-a {
       background-color: #ededed;
