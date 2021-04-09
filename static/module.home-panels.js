@@ -1,12 +1,5 @@
 /* eslint-disable no-undef */
 
-// helpers
-function visit(ele) {
-  const bnd = ele.getBoundingClientRect();
-  if (bnd.top < 200) return true;
-  return false;
-}
-
 class Article {
   constructor(element) {
     this.element = element;
@@ -37,12 +30,13 @@ class Article {
       }
     }
   }
-  updateVisited(id) {
+  updateVisited() {
     if (this.head) {
       let cur = this.head;
       while (cur) {
-        if (cur.id === id) {
-          const ele = cur.element;
+        const ele = cur.element;
+        const bdt = ele.getBoundingClientRect().top;
+        if (bdt < 10) {
           ele.classList.add('visited');
         }
         cur = cur.next;
@@ -50,7 +44,6 @@ class Article {
     }
   }
 }
-
 class Panel {
   constructor(id, element, parent) {
     this.id = id;
@@ -72,6 +65,11 @@ class Panel {
 }
 
 // visited status
+function updateVisitedStatusOnScroll(article) {
+  article.element.addEventListener('scroll', () => article.updateVisited());
+}
+
+// list construction on DOM load
 document.addEventListener('DOMContentLoaded', () => {
   const article = new Article(document.getElementById('article'));
   article.pushPanel(new Panel('panelA', document.getElementById('panelA'), article.element));
@@ -79,6 +77,12 @@ document.addEventListener('DOMContentLoaded', () => {
   article.pushPanel(new Panel('panelC', document.getElementById('panelC'), article.element));
   article.pushPanel(new Panel('panelD', document.getElementById('panelD'), article.element));
   article.pushPanel(new Panel('panelE', document.getElementById('panelE'), article.element));
-  article.updatePush();
-  console.log(article);
+  setTimeout(() => {
+    article.updatePush();
+    article.updateVisited(article);
+    updateVisitedStatusOnScroll(article);
+  }, 500);
+
+  // get new push positions on orientation changes
+  window.addEventListener('resize', () => article.updatePush());
 });
