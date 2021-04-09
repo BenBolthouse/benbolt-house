@@ -1,0 +1,11 @@
+article.home-page section.panel-a {
+  background-color: #333;
+  > .content {
+    background-color: #777;
+  }
+  > .scroll-next .push-container {
+    background-color: white;
+  }
+  &.visited > .content {
+  }
+}
