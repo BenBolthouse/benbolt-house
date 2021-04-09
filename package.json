@@ -6,7 +6,7 @@
     "start": "node ./bin/run",
     "dev": "nodemon -r dotenv/config ./bin/run",
     "build": "webpack",
-    "sass": "sass --watch views/style.scss static/style.css --style compressed"
+    "sass": "sass --watch views/style.scss static/style.min.css --style compressed"
   },
   "dependencies": {
     "colors": "^1.4.0",
