@@ -2,7 +2,7 @@
 
 article.home-page {
   display: block;
-  height: 100%;
+  height: -webkit-fill-available;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   section {
