@@ -2,14 +2,14 @@
 
 article.home-page {
   display: block;
-  height: 100vh;
+  height: 100%;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   section {
     grid-template: auto 10rem / 2rem auto 2rem;
     scroll-snap-align: start;
     position: relative;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     > .content {
       grid-row: 1 / 2;
