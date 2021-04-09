@@ -18,4 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', () => {
     updateOrientationClass(body);
   });
+  // credit: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
+  const vh = window.innerHeight * 0.01;
+  const articles = document.querySelectorAll('.fit-viewport');
+  articles.forEach(a => a.style.setProperty('--vh', `${vh}px`));
+  // end credit
 });
