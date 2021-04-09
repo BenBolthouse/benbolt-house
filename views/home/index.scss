@@ -5,7 +5,7 @@ article.home-page {
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   section {
-    grid-template: 5rem auto 7rem / 2rem auto 2rem;
+    grid-template: 1rem auto 7rem / 2rem auto 2rem;
     scroll-snap-align: start;
     position: relative;
     height: 100%;
