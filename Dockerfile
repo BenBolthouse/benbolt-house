@@ -11,7 +11,7 @@ RUN npm i
 
 COPY . .
 
-RUN npx sass views/styles.scss public/css/styles.css
+RUN npx sass views/style.scss static/style.min.css --style compressed
 
 EXPOSE 5000
 
