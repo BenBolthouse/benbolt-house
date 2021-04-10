@@ -3,6 +3,6 @@
     "title": "Ben Bolthouse",
     "description": "Welcome to my website where I share my projects and ideas. Grab some coffee and come hang out!",
     "keywords": ["Software Engineer", "Node", "Express"],
-    "modules": ["home", "home-panels"]
+    "modules": ["home", "home-panels", "home-ether"]
   }
 }
