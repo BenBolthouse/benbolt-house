@@ -1,11 +1,52 @@
+@use '../type.scss' as t;
+
 article.home-page section.panel-a {
-  background-color: #333;
+  background: linear-gradient(#101010, #12042c);
+  > .ether {
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    z-index: 90;
+    > .node {
+      display: block;
+      position: absolute;
+      background-color: white;
+      top: 100%;
+    }
+    &.near > .node {
+      width: 3px;
+      height: 3px;
+    }
+    &.far > .node {
+      width: 1px;
+      height: 1px;
+    }
+  }
   > .content {
-    background-color: #777;
+    align-content: center;
+    color: white;
+    z-index: 100;
+    h1 {
+      @include t.font-48;
+      color: white;
+      font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+      font-weight: 300;
+      text-align: center;
+    }
   }
   > .scroll-next .push-container {
     background-color: white;
   }
-  &.visited > .content {
+}
+
+@keyframes ether-node-float {
+  $dist: 32px;
+  $hdist: 16px;
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -15%;
   }
 }
