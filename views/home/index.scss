@@ -2,10 +2,12 @@
 
 article.home-page {
   display: block;
+  overflow-x: hidden;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   section {
-    grid-template: 1rem auto 7rem / 2rem auto 2rem;
+    grid-template-rows: 1rem auto 1rem;
+    grid-template-columns: 2rem auto 2rem;
     scroll-snap-align: start;
     position: relative;
     height: 100%;
@@ -64,9 +66,10 @@ article.home-page {
 }
 
 @media screen and (min-width: 76rem) {
-  article.home-page {
-    section {
-      grid-template-columns: auto 72rem auto;
-    }
+  article.home-page section {
+    grid-template-columns: auto 72rem auto;
+  }
+  article.home-page section {
+    grid-template-rows: 1rem auto 7rem;
   }
 }
