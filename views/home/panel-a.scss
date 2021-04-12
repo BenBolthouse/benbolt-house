@@ -1,7 +1,12 @@
 @use '../type.scss' as t;
 
 article.home-page section.panel-a {
-  background: linear-gradient(#101010, #12042c);
+  background: radial-gradient(
+    ellipse at bottom,
+    hsl(262, 28%, 16%),
+    hsl(259, 81%, 8%),
+    hsl(0, 0%, 0%)
+  );
   > .ether {
     position: absolute;
     display: block;
@@ -14,25 +19,93 @@ article.home-page section.panel-a {
       background-color: white;
       top: 100%;
     }
-    &.near > .node {
-      width: 3px;
-      height: 3px;
+    &.near {
+      opacity: 0.5;
+      > .node {
+        width: 4px;
+        height: 4px;
+      }
     }
-    &.far > .node {
-      width: 1px;
-      height: 1px;
+    &.far {
+      opacity: 0.25;
+      > .node {
+        width: 2px;
+        height: 2px;
+      }
     }
   }
   > .content {
-    align-content: center;
+    $logo-size: 6rem;
+    grid-template: $logo-size 1fr / auto $logo-size auto;
     color: white;
+    margin: 15% 0;
     z-index: 100;
-    h1 {
-      @include t.font-48;
+    > .logo {
+      grid-column: 2 / 3;
+      filter: invert(100%);
+      width: $logo-size;
+      height: $logo-size;
+      // animation props ----
+      animation: content-breathe 4s ease-in-out 0.5s infinite;
+      opacity: 0;
+      // --------------------
+    }
+    > .inner {
+      align-self: center;
+      justify-self: center;
+      grid-row: 2 / 3;
+      grid-column: 1 / 4;
       color: white;
-      font-family: 'Quicksand', Arial, Helvetica, sans-serif;
-      font-weight: 300;
+      margin-bottom: 4rem;
+      max-width: 36rem;
       text-align: center;
+      // animation props ----
+      animation: content-breathe 4s ease-in-out 0.5s infinite;
+      margin-top: 4rem;
+      opacity: 0;
+      // --------------------
+      h1 {
+        @include t.font-56;
+        color: #765ea5;
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+        font-weight: 300;
+        margin-bottom: 2rem;
+        span {
+          color: white;
+        }
+      }
+      sub {
+        @include t.font-24;
+        margin-bottom: 1rem;
+        font-weight: 300;
+      }
+      hr {
+        opacity: 0.25;
+        margin-bottom: 1rem;
+        width: 100%;
+      }
+      p {
+        justify-self: center;
+        @include t.font-18;
+        color: #958aac;
+        margin-bottom: 0.75rem;
+      }
+      a {
+        $color: hsl(16, 71%, 70%);
+        justify-self: center;
+        @include t.font-18;
+        color: $color;
+        border-radius: 0.25rem;
+        border: 1px solid $color;
+        margin-top: 0.5rem;
+        padding: 4px 0.5rem 6px;
+        text-decoration: none;
+        &:hover {
+          $color: hsl(16, 71%, 80%);
+          border-color: $color;
+          color: $color;
+        }
+      }
     }
   }
   > .scroll-next .push-container {
@@ -40,13 +113,45 @@ article.home-page section.panel-a {
   }
 }
 
+article.home-page section.panel-a.visited {
+  > .content {
+    > .logo {
+      $trans-speed: 0.5s;
+      opacity: 1;
+      transition: opacity $trans-speed;
+      -o-transition: opacity $trans-speed;
+      -moz-transition: opacity $trans-speed;
+      -webkit-transition: opacity $trans-speed;
+    }
+    > .inner {
+      $trans-speed: 0.5s;
+      opacity: 1;
+      margin-top: 0;
+      transition: margin-top $trans-speed ease-in, opacity $trans-speed ease-in;
+      -o-transition: margin-top $trans-speed ease-in, opacity $trans-speed ease-in;
+      -moz-transition: margin-top $trans-speed ease-in, opacity $trans-speed ease-in;
+      -webkit-transition: margin-top $trans-speed ease-in, opacity $trans-speed ease-in;
+    }
+  }
+}
+
 @keyframes ether-node-float {
-  $dist: 32px;
-  $hdist: 16px;
   0% {
     top: 100%;
   }
   100% {
     top: -15%;
+  }
+}
+
+@keyframes content-breathe {
+  0% {
+    margin-top: 0rem;
+  }
+  50% {
+    margin-top: -1rem;
+  }
+  100% {
+    margin-top: 0rem;
   }
 }
