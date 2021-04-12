@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Quicksand:wght@300;400&display=swap');
 
 body * {
-  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  font-family: 'Noto Sans JP', Arial, Helvetica, sans-serif;
 }
 
 $_pxSizes: (
@@ -21,70 +21,94 @@ $_pxSizes: (
 
 @each $s, $t in $_pxSizes {
   .font-#{$t} {
-    $c: $s / 16;
-    font-size: $c;
-    line-height: $c;
-    min-height: $c;
+    $a: $s / 16;
+    font-size: $a;
+    line-height: $a + 0.75rem;
+    min-height: $a + 0.75rem;
   }
 }
 
 @mixin font-14 {
-  font-size: (14rem / 16);
-  line-height: 1rem;
-  min-height: 1rem;
+  $a: (14rem / 16);
+  font-size: $a;
+  line-height: $a + 0.75rem;
+  min-height: $a + 0.75rem;
 }
 @mixin font-15 {
-  font-size: (15rem / 16);
-  line-height: 1rem;
-  min-height: 1rem;
+  $a: (15rem / 16);
+  font-size: $a;
+  line-height: $a + 0.75rem;
+  min-height: $a + 0.75rem;
 }
 @mixin font-16 {
+  $a: 1rem;
   font-size: 1rem;
-  line-height: 1rem;
-  min-height: 1rem;
+  line-height: $a + 0.75rem;
+  min-height: $a + 0.75rem;
 }
 @mixin font-18 {
-  font-size: (18rem / 16);
-  line-height: 1.25rem;
-  min-height: 1.25rem;
+  $a: (18rem / 16);
+  font-size: $a;
+  line-height: $a + 0.75rem;
+  min-height: $a + 0.75rem;
 }
 @mixin font-20 {
-  font-size: (20rem / 16);
-  line-height: 1.25rem;
-  min-height: 1.25rem;
+  $a: (20rem / 16);
+  font-size: $a;
+  line-height: $a + 0.75rem;
+  min-height: $a + 0.75rem;
 }
 @mixin font-24 {
-  font-size: (24rem / 16);
-  line-height: 1.5rem;
-  min-height: 1.5rem;
+  $a: (24rem / 16);
+  font-size: $a;
+  line-height: $a + 0.75rem;
+  min-height: $a + 0.75rem;
 }
 @mixin font-28 {
-  font-size: (28rem / 16);
-  line-height: 1.75rem;
-  min-height: 1.75rem;
+  $a: (28rem / 16);
+  font-size: $a;
+  line-height: $a + 0.75rem;
+  min-height: $a + 0.75rem;
 }
 @mixin font-32 {
-  font-size: (32rem / 16);
-  line-height: 2rem;
-  min-height: 2rem;
+  $a: (32rem / 16);
+  font-size: $a;
+  line-height: $a + 0.75rem;
+  min-height: $a + 0.75rem;
 }
 @mixin font-36 {
-  font-size: (36rem / 16);
-  line-height: 2.25rem;
-  min-height: 2.25rem;
+  $a: (36rem / 16);
+  font-size: $a;
+  line-height: $a + 0.75rem;
+  min-height: $a + 0.75rem;
 }
 @mixin font-40 {
-  font-size: (34rem / 16);
-  line-height: 2.5rem;
-  min-height: 2.5rem;
+  $a: (34rem / 16);
+  font-size: $a;
+  line-height: $a + 0.75rem;
+  min-height: $a + 0.75rem;
 }
 @mixin font-44 {
-  font-size: (44rem / 16);
-  line-height: 2.75rem;
-  min-height: 2.75rem;
+  $a: (44rem / 16);
+  font-size: $a;
+  line-height: $a + 0.75rem;
+  min-height: $a + 0.75rem;
 }
 @mixin font-48 {
-  font-size: (48rem / 16);
-  line-height: 3rem;
-  min-height: 3rem;
+  $a: (48rem / 16);
+  font-size: $a;
+  line-height: $a + 0.75rem;
+  min-height: $a + 0.75rem;
+}
+@mixin font-52 {
+  $a: (52rem / 16);
+  font-size: $a;
+  line-height: $a + 0.75rem;
+  min-height: $a + 0.75rem;
+}
+@mixin font-56 {
+  $a: (56rem / 16);
+  font-size: $a;
+  line-height: $a + 0.75rem;
+  min-height: $a + 0.75rem;
 }
