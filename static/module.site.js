@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const body = document.getElementsByTagName('body')[0];
   updateOrientationClass(body);
   updateViewportHeight();
-  window.addEventListener('resize', () => {
+  setInterval(() => {
     updateOrientationClass(body);
     updateViewportHeight();
-  });
+  }, 10);
 });
