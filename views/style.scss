@@ -16,11 +16,9 @@ body {
 }
 
 // rules set the height to mobile viewport excluding browser chrome
-.fit-viewport {
-  // credit: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
-  height: 100vh; // fallback for old decrepit browsers
-  height: calc(var(--vh, 1vh) * 100); // javascript variable for the viewport height
-  // end credit
+[fitviewport] {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 // Views scoped styles

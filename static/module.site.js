@@ -1,38 +1,53 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-undef */
 
-// vertical versus horizontal orientation
-function updateOrientationClass(body) {
-  const hgt = body.offsetHeight;
-  const wdt = body.offsetWidth;
-  if (hgt >= wdt) {
-    body.classList.add('portrait');
-    body.classList.remove('landscape');
-  } else {
-    body.classList.add('landscape');
-    body.classList.remove('portrait');
+/**
+ * Handles adding CSS classes to elements tagged with 'orientation'; if the
+ * viewport is wider than it is tall then tagged elements receive the class
+ * landscape, and the opposite is true for portrait orientated viewport. Of
+ * course, classes portrait and landscape are mutually exclusive and do not
+ * appear together on elements.
+ */
+export const updateOrientationClasses = () => {
+  function run() {
+    const targets = document.querySelectorAll('[orientation]');
+    const viewportHeight = document.body.offsetHeight;
+    const viewportWidth = document.body.offsetWidth;
+    if (viewportHeight >= viewportWidth) {
+      targets.forEach((t) => {
+        t.classList.add('portrait');
+        t.classList.remove('landscape');
+      });
+    } else {
+      targets.forEach((t) => {
+        t.classList.add('landscape');
+        t.classList.remove('portrait');
+      });
+    }
   }
-}
-function updateViewportHeight() {
-  // credit: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
-  const vh = window.innerHeight * 0.01;
-  const articles = document.querySelectorAll('.fit-viewport');
-  articles.forEach(a => a.style.setProperty('--vh', `${vh}px`));
-  // end credit
-}
+  window.addEventListener('resize', () => run());
+  document.addEventListener('DOMContentLoaded', () => run());
+  return run;
+};
 
-// get updates on load, window resize and delay after resize -- delay accounts
-// for mobile experiences and shifts in browser sizes due to changes in browser
-// UI elements
-document.addEventListener('DOMContentLoaded', () => {
-  const body = document.getElementsByTagName('body')[0];
-  updateOrientationClass(body);
-  updateViewportHeight();
-  window.addEventListener('resize', () => {
-    updateOrientationClass(body);
-    updateViewportHeight();
-    setTimeout(() => {
-      updateOrientationClass(body);
-      updateViewportHeight();
-    }, 500);
-  });
-});
+/**
+ * Creates css variables for elements with class name fit-viewport; updates on
+ * load and window resize.
+ */
+export const updateViewportHeightStyles = () => {
+  function run() {
+    const targets = document.querySelectorAll('[fitviewport]');
+    const viewportHeightCalc = window.innerHeight * 0.01;
+    targets.forEach((a) => {
+      a.style.setProperty('--vh', `${viewportHeightCalc}px`);
+      a.style.transition = 'height 0.5s ease';
+    });
+  }
+  window.addEventListener('resize', () => run());
+  document.addEventListener('DOMContentLoaded', () => run());
+  return run;
+};
+
+// runtime execution of module scripts
+updateOrientationClasses();
+updateViewportHeightStyles();

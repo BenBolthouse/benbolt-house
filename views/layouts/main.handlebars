@@ -5,18 +5,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="{{#if head.noindex}}noindex{{else}}index,follow{{/if}}">
+  <meta name="robots" content="index,follow">
+  <meta name="description" content="{{head.description}}">
+  <meta name="keywords" content="{{head.keywords}}">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.min.css">
-  {{#if head.description}}<meta name="description" content="{{head.description}}" />{{/if}}
-  {{#if head.keywords}}<meta name="keywords" content="{{head.keywords}}">{{/if}}
-  <title>{{#if head.title}}{{head.title}}{{else}}Ben Bolthouse{{/if}}</title>
-  <script defer src="module.site.js"></script>
-  <script defer src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+  <title>{{head.title}}</title>
 </head>
 <body>
 
   {{{body}}}
 
+  <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

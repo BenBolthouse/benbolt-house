@@ -1,14 +1,52 @@
+/* eslint-disable brace-style */
 /* eslint-disable no-undef */
+/* eslint-disable max-len */
 
-class Article {
-  constructor(element) {
-    this.element = element;
-    this.current = 0;
-    this.head = null;
+export class Article {
+  /**
+   * @param {Element} element Article element from the dom
+   * @param {Function | Array<Function> | null} onScrollCb Function or array of functions to call on article scroll
+   * @param {Function | Array<Function> | null} onWindowResizeCb Function or array of functions to call on window resize
+   */
+  constructor(element, onScrollCb, onWindowResizeCb) {
+    this.element = element; // ------- article DOM element
+    this.current = null; // ---------- panel currently fit to the viewport
+    this.head = null; // ------------- head of linked list—first panel pushed to article
+
+    // run all onScrollCb functions when a scroll event is detected
+    this.element.addEventListener('scroll', () => {
+      const isArray = Array.isArray(onScrollCb);
+      const arrayNotEmpty = isArray && onScrollCb.length > 0;
+      // run all array functions in sequence
+      if (isArray && arrayNotEmpty) {
+        onScrollCb.forEach(f => f());
+      }
+      // otherwise run the callback
+      else if (onScrollCb) onScrollCb();
+    });
+
+    // run all onScrollCb functions when a scroll event is detected
+    window.addEventListener('resize', () => {
+      const isArray = Array.isArray(onWindowResizeCb);
+      const arrayNotEmpty = isArray && onWindowResizeCb.length > 0;
+      // run all array functions in sequence
+      if (isArray && arrayNotEmpty) {
+        onWindowResizeCb.forEach(f => f());
+      }
+      // otherwise run the callback
+      else if (onWindowResizeCb) onWindowResizeCb();
+    });
   }
-  pushPanel(panel) {
-    if (!this.head) this.head = panel;
-    else {
+
+  /**
+   * Adds a new panel to the end of the panel linked list.
+   * @param {Panel} panel
+   */
+  add(panel) {
+    if (!this.head) {
+      this.current = panel;
+      this.head = panel;
+    } else {
       let cur = this.head;
       while (cur) {
         if (cur.next) cur = cur.next;
@@ -19,71 +57,52 @@ class Article {
       }
     }
   }
-  updatePush() {
-    if (this.head) {
-      let cur = this.head;
-      while (cur) {
-        if (cur.next) {
-          const nxe = cur.next.element;
-          cur.push = nxe.offsetTop;
-        }
-        cur = cur.next;
-      }
-    }
-  }
-  updateVisited() {
-    if (this.head) {
-      let cur = this.head;
-      while (cur) {
-        const ele = cur.element;
-        const bdt = ele.getBoundingClientRect().top;
-        if (bdt < 10) {
-          ele.classList.add('visited');
-        }
-        cur = cur.next;
-      }
-    }
-  }
+
+  /**
+   * Intended usage is on article scroll or window resize event
+   */
+  // updateBreakpoints() {
+  //   if (this.head) {
+  //     let cur = this.head;
+  //     while (cur) {
+  //       if (cur.next) {
+  //         const nxe = cur.next.element;
+  //         cur.breakpoint = nxe.offsetTop;
+  //       }
+  //       cur = cur.next;
+  //     }
+  //   }
+  // }
+
+  // updateVisited() {
+  //   if (this.head) {
+  //     let cur = this.head;
+  //     while (cur) {
+  //       const ele = cur.element;
+  //       const bdt = ele.getBoundingClientRect().top;
+  //       if (bdt < 10) {
+  //         ele.classList.add('visited');
+  //         this.current = cur.breakpoint;
+  //       }
+  //       cur = cur.next;
+  //     }
+  //   }
+  // }
 }
-class Panel {
+export class Panel {
   constructor(id, element, parent) {
     this.id = id;
     this.element = element;
-    this.parent = parent;
     this.next = null;
-    this.push = null;
-    this.scrollTop = null;
-    this.pushElement = element.querySelector('.push-container');
-    if (this.pushElement) {
-      this.pushElement.addEventListener('click', () => {
-        this.parent.scroll({
-          top: this.push,
-          behavior: 'smooth',
-        });
-      });
-    }
   }
-}
-
-// visited status
-function updateVisitedStatusOnScroll(article) {
-  article.element.addEventListener('scroll', () => article.updateVisited());
 }
 
 // list construction on DOM load
 document.addEventListener('DOMContentLoaded', () => {
   const article = new Article(document.getElementById('article'));
-  article.pushPanel(new Panel('panelA', document.getElementById('panelA'), article.element));
-  article.pushPanel(new Panel('panelB', document.getElementById('panelB'), article.element));
-  article.pushPanel(new Panel('panelC', document.getElementById('panelC'), article.element));
-  article.pushPanel(new Panel('panelD', document.getElementById('panelD'), article.element));
-  article.pushPanel(new Panel('panelE', document.getElementById('panelE'), article.element));
-  setTimeout(() => {
-    article.updatePush();
-    article.updateVisited(article);
-    updateVisitedStatusOnScroll(article);
-  }, 500);
-
-  // get new push positions on orientation changes
-  window.addEventListener('resize', () => article.updatePush());
+  article.add(new Panel('panelA', document.getElementById('panelA'), article.element));
+  article.add(new Panel('panelB', document.getElementById('panelB'), article.element));
+  article.add(new Panel('panelC', document.getElementById('panelC'), article.element));
+  article.add(new Panel('panelD', document.getElementById('panelD'), article.element));
+  article.add(new Panel('panelE', document.getElementById('panelE'), article.element));
 });

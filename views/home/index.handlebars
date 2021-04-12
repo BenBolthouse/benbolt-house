@@ -1,34 +1,49 @@
-<article id="article" class="fit-viewport home-page">
-  <section id="panelA" class="fit-viewport panel-a">
-    <div class="content">
-      <img src="images/logo320_v1.svg" alt="logo" class="logo">
-      <img src="images/logo320_v1.svg" alt="logo" class="landscape-logo">
-      <div class="inner">
-        <h1>Hi, my name is <span>Ben</span></h1>
-        <sub>I make engaging & compelling internet experiences.</sub>
-        <hr>
-        <p>Scroll down to view my projects, blog articles and updates</p>
-        <p>Or if you want to chat then <a href=="/#">Let's get in touch</a></p>
-      </div>
-    </div>
-    <div class="fit-viewport ether far"></div>
-    <div class="fit-viewport ether near"></div>
+<article id="article" fitviewport class="home-page">
+  <section id="panelA" fitviewport class="panel-a">
+    <div class="content"></div>
     <div class="scroll-next">
-      <div class="push-container">
+      <button>
         <ion-icon name="chevron-down-sharp"></ion-icon>
-      </div>
+      </button>
     </div>
   </section>
-  <section id="panelB" class="fit-viewport panel-b">
-    <div class="scroll-next"><div class="push-container"></div></div>
+  <section id="panelB" fitviewport class="panel-b">
+    <div class="scroll-next">
+      <button>
+        <ion-icon name="chevron-down-sharp"></ion-icon>
+      </button>
+    </div>
   </section>
-  <section id="panelC" class="fit-viewport panel-c">
-    <div class="scroll-next"><div class="push-container"></div></div>
+  <section id="panelC" fitviewport class="panel-c">
+    <div class="scroll-next">
+      <button>
+        <ion-icon name="chevron-down-sharp"></ion-icon>
+      </button>
+    </div>
   </section>
-  <section id="panelD" class="fit-viewport panel-d">
-    <div class="scroll-next"><div class="push-container"></div></div>
+  <section id="panelD" fitviewport class="panel-d">
+    <div class="scroll-next">
+      <button>
+        <ion-icon name="chevron-down-sharp"></ion-icon>
+      </button>
+    </div>
   </section>
-  <section id="panelE" class="fit-viewport panel-e">
+  <section id="panelE" fitviewport class="panel-e">
   </section>
-  {{#each modules}} <script defer type="module" src="{{this}}"></script>{{/each}}
 </article>
+
+<script defer type="module">
+  import { Article, Panel } from '/module.home-panels.js';
+  import { updateViewportHeightStyles } from '/module.site.js';
+
+  const updatesOnScroll = [updateViewportHeightStyles()];
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const article = new Article(document.getElementById('article'), updatesOnScroll);
+    article.add(new Panel('panelA', document.getElementById('panelA'), article.element));
+    article.add(new Panel('panelB', document.getElementById('panelB'), article.element));
+    article.add(new Panel('panelC', document.getElementById('panelC'), article.element));
+    article.add(new Panel('panelD', document.getElementById('panelD'), article.element));
+    article.add(new Panel('panelE', document.getElementById('panelE'), article.element));
+  });
+</script>
