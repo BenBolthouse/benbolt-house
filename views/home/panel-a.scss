@@ -1,12 +1,13 @@
 @use '../type.scss' as t;
 
 article.home-page section.panel-a {
-  background: radial-gradient(
-    ellipse at bottom,
-    hsl(262, 28%, 16%),
-    hsl(259, 81%, 8%),
-    hsl(0, 0%, 0%)
-  );
+  background-color: rgb(6, 12, 44);
+  // background: radial-gradient(
+  //   ellipse at bottom,
+  //   hsl(262, 28%, 16%),
+  //   hsl(259, 81%, 8%),
+  //   hsl(0, 0%, 0%)
+  // );
   > .ether {
     position: absolute;
     display: block;
@@ -70,13 +71,12 @@ article.home-page section.panel-a {
       max-width: 36rem;
       text-align: center;
       // animation props ----
-      animation: content-breathe 4s ease-in-out 0.5s infinite;
       margin-top: 4rem;
       opacity: 0;
       // --------------------
       h1 {
         @include t.font-40;
-        color: #765ea5;
+        color: #956ee2;
         font-family: 'Quicksand', Arial, Helvetica, sans-serif;
         font-weight: 400;
         margin-bottom: 1rem;
@@ -87,6 +87,7 @@ article.home-page section.panel-a {
       }
       sub {
         @include t.font-18;
+        letter-spacing: 0.04rem;
         margin-bottom: 1rem;
         font-weight: 300;
       }
@@ -98,20 +99,24 @@ article.home-page section.panel-a {
         width: 50%;
       }
       p {
-        justify-self: center;
+        // justify-self: center;
         @include t.font-18;
-        color: #958aac;
+        color: #bab1d0;
+        font-weight: 300;
+        display: inline-block;
         margin-bottom: 0.75rem;
       }
       a {
         $color: hsl(16, 71%, 70%);
-        justify-self: center;
+        // justify-self: center;
         @include t.font-18;
         color: $color;
         border-radius: 0.25rem;
         border: 1px solid $color;
-        margin-top: 0.5rem;
-        padding: 4px 0.5rem 6px;
+        display: inline-block;
+        margin: 0.5rem 0.25rem 0;
+        padding: 4px 0.25rem 6px;
+        white-space: nowrap;
         text-decoration: none;
         &:hover {
           $color: hsl(16, 71%, 80%);
@@ -126,15 +131,17 @@ article.home-page section.panel-a {
   }
 }
 
-body.landscape article.home-page {
-  .content {
-    grid-template: auto 1fr / auto auto auto;
-    margin: 1rem 0;
-    > .landscape-logo {
-      display: initial;
-    }
-    > .logo {
-      display: none;
+@media screen and (max-width: 56rem) {
+  body.landscape article.home-page {
+    .content {
+      grid-template: auto 1fr / auto auto auto;
+      margin: 1rem 0;
+      > .landscape-logo {
+        display: initial;
+      }
+      > .logo {
+        display: none;
+      }
     }
   }
 }
@@ -153,10 +160,11 @@ article.home-page section.panel-a.visited {
       $trans-speed: 0.5s;
       opacity: 1;
       margin-top: 0;
-      transition: margin-top $trans-speed ease-in, opacity $trans-speed ease-in;
-      -o-transition: margin-top $trans-speed ease-in, opacity $trans-speed ease-in;
-      -moz-transition: margin-top $trans-speed ease-in, opacity $trans-speed ease-in;
-      -webkit-transition: margin-top $trans-speed ease-in, opacity $trans-speed ease-in;
+      animation: content-breathe 4s ease-in-out 0.5s infinite;
+      transition: margin-top $trans-speed ease-in-out, opacity $trans-speed ease-in;
+      -o-transition: margin-top $trans-speed ease-in-out, opacity $trans-speed ease-in;
+      -moz-transition: margin-top $trans-speed ease-in-out, opacity $trans-speed ease-in;
+      -webkit-transition: margin-top $trans-speed ease-in-out, opacity $trans-speed ease-in;
     }
   }
 }

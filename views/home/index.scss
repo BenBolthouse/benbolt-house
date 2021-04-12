@@ -11,6 +11,7 @@ article.home-page {
     position: relative;
     height: 100%;
     width: 100%;
+    transition: height 4s ease;
     > .content {
       grid-column: 2 / 3;
     }

@@ -19,12 +19,20 @@ function updateViewportHeight() {
   articles.forEach(a => a.style.setProperty('--vh', `${vh}px`));
   // end credit
 }
+
+// get updates on load, window resize and delay after resize -- delay accounts
+// for mobile experiences and shifts in browser sizes due to changes in browser
+// UI elements
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.getElementsByTagName('body')[0];
   updateOrientationClass(body);
   updateViewportHeight();
-  setInterval(() => {
+  window.addEventListener('resize', () => {
     updateOrientationClass(body);
     updateViewportHeight();
-  }, 10);
+    setTimeout(() => {
+      updateOrientationClass(body);
+      updateViewportHeight();
+    }, 500);
+  });
 });
