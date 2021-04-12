@@ -3,6 +3,7 @@
 class Article {
   constructor(element) {
     this.element = element;
+    this.current = 0;
     this.head = null;
   }
   pushPanel(panel) {

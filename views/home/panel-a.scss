@@ -40,6 +40,16 @@ article.home-page section.panel-a {
     color: white;
     margin: 15% 0;
     z-index: 100;
+    > .landscape-logo {
+      display: none;
+      position: absolute;
+      filter: invert(100%);
+      width: 4rem;
+      height: 4rem;
+      top: 1rem;
+      left: 1rem;
+      z-index: 400;
+    }
     > .logo {
       grid-column: 2 / 3;
       filter: invert(100%);
@@ -65,24 +75,27 @@ article.home-page section.panel-a {
       opacity: 0;
       // --------------------
       h1 {
-        @include t.font-56;
+        @include t.font-40;
         color: #765ea5;
         font-family: 'Quicksand', Arial, Helvetica, sans-serif;
-        font-weight: 300;
-        margin-bottom: 2rem;
+        font-weight: 400;
+        margin-bottom: 1rem;
         span {
           color: white;
+          font-family: 'Quicksand', Arial, Helvetica, sans-serif;
         }
       }
       sub {
-        @include t.font-24;
+        @include t.font-18;
         margin-bottom: 1rem;
         font-weight: 300;
       }
       hr {
+        border: none;
+        border-bottom: 1px solid white;
         opacity: 0.25;
         margin-bottom: 1rem;
-        width: 100%;
+        width: 50%;
       }
       p {
         justify-self: center;
@@ -110,6 +123,19 @@ article.home-page section.panel-a {
   }
   > .scroll-next .push-container {
     background-color: white;
+  }
+}
+
+body.landscape article.home-page {
+  .content {
+    grid-template: auto 1fr / auto auto auto;
+    margin: 1rem 0;
+    > .landscape-logo {
+      display: initial;
+    }
+    > .logo {
+      display: none;
+    }
   }
 }
 
@@ -149,7 +175,7 @@ article.home-page section.panel-a.visited {
     margin-top: 0rem;
   }
   50% {
-    margin-top: -1rem;
+    margin-top: -0.5rem;
   }
   100% {
     margin-top: 0rem;
