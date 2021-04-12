@@ -6,14 +6,12 @@ article.home-page {
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   section {
-    grid-template-rows: 1rem auto 1rem;
     grid-template-columns: 2rem auto 2rem;
     scroll-snap-align: start;
     position: relative;
     height: 100%;
     width: 100%;
     > .content {
-      grid-row: 2 / 3;
       grid-column: 2 / 3;
     }
     > .scroll-next {
@@ -68,8 +66,5 @@ article.home-page {
 @media screen and (min-width: 76rem) {
   article.home-page section {
     grid-template-columns: auto 72rem auto;
-  }
-  article.home-page section {
-    grid-template-rows: 1rem auto 7rem;
   }
 }
