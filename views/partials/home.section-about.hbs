@@ -1,0 +1,40 @@
+<section data-section data-orientation data-viewport-height id="about">
+  <div class="content">
+    <h2 animate="scale-up">About</h2>
+    <div class="bio">
+      <div animate="translate-y-up-bounce">
+        <img src="{{data.about.bio.image}}" alt="me">
+        <h3>{{data.about.bio.heading}}</h3>
+        <p>{{{data.about.bio.sub}}}</p>
+      </div>
+    </div>
+    <div class="skills">
+      <div animate="translate-y-up-bounce">
+        {{#each data.about.skills}}
+        <div>
+          <h3 class="category">{{this.heading}}</h3>
+          <div>
+            {{#each this.items}}
+            <div class="skill{{#if this.highlight}} interest{{/if}}">
+              <div class="icon"></div>
+              <span>{{this.title}}</span>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    {{#each data.about.cards}}
+      <div class="card {{this.id}}">
+        <div animate="scale-up">
+          <div class="badge">
+            <ion-icon name="{{ionicon}}"></ion-icon>
+          </div>
+          <h3>{{this.heading}}</h3>
+          <p>{{this.sub}}</p>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</section>

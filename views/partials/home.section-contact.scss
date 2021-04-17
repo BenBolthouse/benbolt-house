@@ -1,0 +1,61 @@
+@use '../global' as global;
+
+article#home section#contact {
+  background-color: global.$col-a-1;
+  .content {
+    place-content: center center;
+    h2 {
+      color: global.$col-a-4;
+      opacity: 0;
+    }
+    p,
+    label {
+      color: global.$col-a-5;
+    }
+    p {
+      opacity: 0;
+      margin: 0 2rem 2rem;
+      text-align: center;
+    }
+    form {
+      display: grid;
+      // prettier-ignore
+      grid-template-areas: 'eml eml'
+                           'nam phn'
+                           'bdy bdy'
+                           'snd snd';
+      opacity: 0;
+      max-width: 56rem;
+      > * {
+        margin: 0 0.5rem 1rem;
+      }
+      .email {
+        grid-area: eml;
+      }
+      .name {
+        grid-area: nam;
+      }
+      .body {
+        grid-area: bdy;
+        height: 6rem;
+      }
+      button {
+        grid-area: snd;
+        margin: 0 auto;
+        width: 12rem;
+      }
+    }
+  }
+  &.seen .content h2 {
+    animation-delay: 0.1s;
+    -webkit-animation-delay: 0.1s;
+  }
+  &.seen .content p {
+    animation-delay: 0.5s;
+    -webkit-animation-delay: 0.3s;
+  }
+  &.seen .content form {
+    animation-delay: 0.5s;
+    -webkit-animation-delay: 0.5s;
+  }
+}

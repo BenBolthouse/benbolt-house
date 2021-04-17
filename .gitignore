@@ -1,3 +1,5 @@
+# cspell:disable
+
 # Created by https://www.gitignore.io/api/intel,intellij,macos,node
 
 #!! ERROR: intel is undefined. Use list command to see defined gitignore types !!#
@@ -133,3 +135,6 @@ jspm_packages
 
 # Ignore graphic design assets
 graphics
+
+# Ignore local data tests using json
+data

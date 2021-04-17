@@ -1,0 +1,178 @@
+@use '../global' as global;
+
+article#home section#about {
+  h3 {
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    min-height: 1.25rem;
+    margin: 0.5rem 0;
+  }
+  .content {
+    // prettier-ignore
+    grid-template-areas: 'hdg hdg hdg hdg'
+                         'bio bio bio bio'
+                         'skl skl skl skl'
+                         'a a a a'
+                         'b b b b'
+                         'c c c c'
+                         'd d d d';
+    h2 {
+      grid-area: hdg;
+      opacity: 0;
+    }
+    .card {
+      align-content: start;
+      padding: 1rem;
+      text-align: center;
+      > div {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        .badge {
+          margin: 0 auto 1rem;
+          border-radius: 50%;
+          background: linear-gradient(global.$color-primary-off-2, global.$color-primary-off);
+          width: 4rem;
+          height: 4rem;
+          padding: 0.75rem;
+          ion-icon {
+            color: white;
+            display: block;
+            font-size: 2.5rem;
+            margin: 0 auto;
+          }
+        }
+      }
+      &.card-a {
+        grid-area: a;
+      }
+      &.card-b {
+        grid-area: b;
+      }
+      &.card-c {
+        grid-area: c;
+      }
+      &.card-d {
+        grid-area: d;
+      }
+    }
+    .bio {
+      grid-area: bio;
+      padding: 1rem;
+      text-align: center;
+      > div {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        align-content: start;
+        opacity: 0;
+        img {
+          margin: 0 auto;
+          border-radius: 50%;
+          margin-bottom: 2rem;
+          max-width: 14rem;
+          max-height: 14rem;
+        }
+        h3 {
+          margin: 0.5rem 0;
+          padding: 0 0.75rem;
+        }
+        p {
+          padding: 0.25rem 0.75rem;
+        }
+      }
+    }
+    .skills {
+      grid-area: skl;
+      padding: 1rem;
+      text-align: center;
+      > div {
+        display: grid;
+        grid-auto-flow: column;
+        align-content: start;
+        opacity: 0;
+        > div {
+          grid-auto-flow: row;
+          align-content: start;
+          .category {
+            margin-bottom: 0.5rem;
+          }
+          > div {
+            display: block;
+            margin-bottom: 0.5rem;
+            .skill {
+              // border-radius: 4px;
+              // background-color: #d8d8d8;
+              margin-bottom: 0.25rem;
+              span {
+                // font-size: (14rem / 16);
+                height: 1.25rem;
+                line-height: 1.25rem;
+              }
+            }
+          }
+        }
+      }
+    }
+    .card, .bio, .skills {
+      margin-bottom: 3rem;
+    }
+  }
+  &.seen .content h2 {
+    animation-delay: 0.6s;
+    -webkit-animation-delay: 0.6s;
+  }
+  &.seen .content .bio > div {
+    animation-delay: 0.5s;
+    -webkit-animation-delay: 0.1s;
+  }
+  &.seen .content .skills > div {
+    animation-delay: 0.5s;
+    -webkit-animation-delay: 0.5s;
+  }
+  &.seen .content .card-a > div {
+    animation-delay: 0.2s;
+    -webkit-animation-delay: 0.2s;
+  }
+  &.seen .content .card-b > div {
+    animation-delay: 0.3s;
+    -webkit-animation-delay: 0.3s;
+  }
+  &.seen .content .card-c > div {
+    animation-delay: 0.4s;
+    -webkit-animation-delay: 0.4s;
+  }
+  &.seen .content .card-d > div {
+    animation-delay: 0.5s;
+    -webkit-animation-delay: 0.5s;
+  }
+  @media screen and (min-width: global.$breakpoint-small-desktop) {
+    .content {
+      // prettier-ignore
+      grid-template-areas: 'hdg hdg hdg hdg'
+                           'a b c d'
+                           'bio bio skl skl';
+      grid-template-rows: 11rem auto auto;
+      align-content: stretch;
+      .bio > div {
+        // prettier-ignore
+        grid-template-areas: 'i h'
+                             'i p';
+        text-align: left;
+        img {
+          grid-area: i;
+          max-width: 10rem;
+          max-height: 10rem;
+        }
+        h3 {
+          grid-area: h;
+        }
+        p {
+          grid-area: p;
+        }
+      }
+      .skills {
+        text-align: left;
+      }
+    }
+  }
+}

@@ -1,12 +1,17 @@
 const { httpLogger } = require('./log');
+const config = require('./config');
+const connectLivereload = require('connect-livereload');
+const cookieParser = require('cookie-parser');
 const express = require('express');
 const expressHbs = require('express-handlebars');
 const favicon = require('serve-favicon');
 const livereload = require('livereload').createServer();
-const connectLivereload = require('connect-livereload');
 const path = require('path');
 const Prismic = require('prismic-javascript');
 const prismicConfig = require('./config/prismic');
+
+// connect to google api
+require('./config/google');
 
 // application routes imports
 const routes = require('./routes');
@@ -40,12 +45,25 @@ livereload.server.once('connection', () => {
   }, 100);
 });
 
-app.engine('handlebars', expressHbs());
-app.set('view engine', 'handlebars');
+// get correct static directory per environment
+const staticDir = config.production ? 'dist' : 'src';
+
+app.engine(
+  'hbs',
+  expressHbs({
+    layoutsDir: path.join(__dirname, 'views', 'layout'),
+    partialsDir: path.join(__dirname, 'views', 'partials'),
+    defaultLayout: 'main',
+    extname: '.hbs',
+  })
+);
+app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
-app.use(express.static(path.join(__dirname, 'static')));
-app.use(favicon(path.join(__dirname, 'static', 'favicon.ico')));
 app.use(connectLivereload());
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, staticDir)));
+app.use(express.urlencoded({ extended: false }));
+app.use(favicon(path.join(__dirname, staticDir, 'favicon.ico')));
 app.use(httpLogger);
 
 // application routes

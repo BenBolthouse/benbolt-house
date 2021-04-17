@@ -1,0 +1,22 @@
+<section data-section data-orientation data-viewport-height id="contact">
+  <div class="content">
+    <h2 animate="translate-y-up-bounce">Let's Keep In Touch!</h2>
+    <p animate="translate-y-up-bounce">Send me a message and I'll get back to you, usually in less than a day.</p>
+    <form animate="scale-up" action="/" method="post">
+      <div class="email">
+        <input type="email" name="email" placeholder="email" required>
+      </div>
+      <div class="name">
+        <input type="text" name="name" placeholder="name">
+      </div>
+      <div class="phone">
+        <input type="text" name="phone" placeholder="phone">
+      </div>
+      <div class="body">
+        <textarea name="body" placeholder="message" required></textarea>
+      </div>
+      <input type="hidden" name="_csrf" value="{{csrf}}">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</section>

@@ -4,15 +4,20 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/run",
-    "dev": "nodemon -r dotenv/config ./bin/run -e handlebars,hbs,scss",
+    "dev": "nodemon -r dotenv/config ./bin/run -e hbs,scss,js,json,mjs",
     "build": "webpack",
-    "sass": "sass --watch views/style.scss static/style.min.css --style compressed"
+    "sass": "sass --watch views/style.scss src/css/style.min.css --style compressed"
   },
   "dependencies": {
     "colors": "^1.4.0",
+    "cookie-parser": "^1.4.5",
+    "csurf": "^1.11.0",
     "dotenv": "^8.2.0",
     "express": "~4.16.1",
     "express-handlebars": "^5.3.0",
+    "google-auth-library": "^7.0.4",
+    "googleapis": "^71.0.0",
+    "handlebars": "^4.7.7",
     "morgan": "^1.9.1",
     "prismic-javascript": "~1.4.0",
     "sass": "^1.32.8",

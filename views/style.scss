@@ -1,25 +1,151 @@
-// Styles config
-@import './reset';
-@import './type';
+@use './global' as global;
 
-// Resets
-div, form, ul, li, a, section {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pragati+Narrow:wght@400;700&display=swap');
+
+@import './reset';
+
+section, div {
   display: grid;
 }
+label {
+  $font-size: (14rem / 16);
+  font-size: $font-size;
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  line-height: $font-size + 0.5rem;
+}
+input[type="text"],
+input[type="email"],
+textarea {
+  border: 1px solid global.$col-a-2;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-size: (18rem / 16);
+  line-height: 2.5rem;
+  min-height: 2.5rem;
+  outline: none;
+  padding: 0 0.5rem;
+  &:focus {
+    border: 1px solid global.$col-info-dk;
+    box-shadow: 0 0 0 2px global.$col-info-lt;
+  }
+}
+textarea {
+  resize: none;
+}
+button {
+  border: none;
+  background-color: global.$col-info-dk;
+  border-radius: 4px;
+  color: white;
+  min-height: 2.5rem;
+  padding: 0 1rem;
+}
+p,
+a,
+bdo,
+br,
+img,
+map,
+object,
+q,
+script,
+span,
+sub,
+sup {
+  $font-size: 1rem;
+  color: global.$col-a-1;
+  font-size: $font-size;
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  line-height: $font-size + 0.5rem;
+}
+h1,
+h2 {
+  color: global.$col-a-4;
+  font-family: 'IBM Plex Sans', Arial, Helvetica, sans-serif;
+  letter-spacing: -0.1rem;
+}
+h3,
+h4,
+h5,
+h6 {
+  color: global.$col-a-3;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+@media screen and (min-width: global.$breakpoint-large-desktop) {
+  p,
+  a,
+  bdo,
+  br,
+  img,
+  map,
+  object,
+  q,
+  script,
+  span,
+  sub,
+  sup {
+    $font-size: (18rem / 16);
+    color: global.$col-a-1;
+    font-size: $font-size;
+    line-height: $font-size + 0.5rem;
+  }
+}
+a {
+  color: global.$col-info-dk;
+  text-decoration: none;
+  white-space: nowrap;
+  &:hover {
+    text-decoration: underline;
+  }
+}
 
-// Top level rules
 body {
-  display: block;
-  overflow: hidden;
-  height: 100vh;
-  width: 100vw;
+  overflow-y: hidden;
+}
+nav,
+div,
+ul,
+li,
+button {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+article {
+  z-index: 100;
+}
+button,
+a {
+  cursor: pointer;
+  outline: none;
+}
+#obfuscate {
+  $background-color: red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  background-color: $background-color;
+  opacity: 1;
+  &.hidden {
+    animation: obfuscate-disappear 0.5s ease 1;
+    opacity: 0;
+    pointer-events: none;
+  }
+  @keyframes obfuscate-disappear {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 }
 
-// rules set the height to mobile viewport excluding browser chrome
-[fitviewport] {
-  height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
-}
-
-// Views scoped styles
 @import './home';

@@ -1,0 +1,131 @@
+@use '../global' as global;
+
+article#home section#work {
+  background-color: global.$col-a-5;
+  .content {
+    grid-template-columns: 1fr 1fr;
+    margin: 0 1rem 6rem;
+    h2 {
+      color: black;
+      grid-column: span 2;
+      opacity: 0;
+    }
+    .project {
+      border-radius: 0.25rem;
+      display: block;
+      grid-column: span 2;
+      margin-bottom: 1rem;
+      max-height: 480px;
+      overflow: hidden;
+      > div {
+        display: block;
+        height: 100%;
+        opacity: 0;
+        position: relative;
+        z-index: 300;
+        img {
+          object-fit: cover;
+          width: 100%;
+          z-index: 301;
+        }
+        .info {
+          // prettier-ignore
+          grid-template-areas: 'tl gh lv'
+                               'ds ds ds';
+          grid-template-rows: 1.75rem auto;
+          grid-template-columns: 1fr auto auto;
+          justify-content: stretch;
+          background-color: rgba(0, 0, 0, 0.9);
+          padding: 1rem;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 7.5rem;
+          z-index: 302;
+          h3,
+          .complete,
+          .github,
+          .live {
+            line-height: 1.5rem;
+            padding-bottom: 0.25rem;
+          }
+          .complete,
+          .github,
+          .live {
+            padding-left: 1rem;
+          }
+          h3,
+          .complete,
+          .description {
+            font-size: 1rem;
+          }
+          a {
+            color: global.$col-info-lt;
+          }
+          ion-icon {
+            display: inline-block;
+            font-size: 1.5rem;
+          }
+          h3 {
+            grid-area: tl;
+            color: #a5a5a5;
+            font-size: (18rem / 16);
+          }
+          .description {
+            grid-area: ds;
+            color: #ededed;
+          }
+          .complete {
+            grid-area: cm;
+            color: #ededed;
+          }
+          .github {
+            grid-area: gh;
+          }
+          .live {
+            grid-area: lv;
+          }
+        }
+      }
+    }
+  }
+  &.seen .content h2 {
+    animation-delay: 0.6s;
+    -webkit-animation-delay: 0.6s;
+  }
+  &.seen .content .project-a > div {
+    animation-delay: 0.2s;
+    -webkit-animation-delay: 0.2s;
+  }
+  &.seen .content .project-b > div {
+    animation-delay: 0.3s;
+    -webkit-animation-delay: 0.3s;
+  }
+  &.seen .content .project-c > div {
+    animation-delay: 0.4s;
+    -webkit-animation-delay: 0.4s;
+  }
+  &.seen .content .project-d > div {
+    animation-delay: 0.5s;
+    -webkit-animation-delay: 0.5s;
+  }
+  @media screen and (min-width: global.$breakpoint-small-desktop) {
+    .content {
+      grid-template-columns: 1fr 1fr 1fr;
+      margin: 0.5rem;
+      h2 {
+        grid-column: span 3;
+      }
+      .project {
+        grid-column: span 1;
+        margin: 0.5rem;
+        max-height: 480px;
+        img {
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

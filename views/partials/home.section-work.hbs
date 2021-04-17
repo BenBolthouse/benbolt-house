@@ -1,0 +1,22 @@
+<section data-section data-orientation data-viewport-height id="work">
+  <div class="content">
+    <h2 animate="scale-up">Work</h2>
+    {{#each data.work.projects}}
+    <div class="project {{this.id}}">
+      <div animate="scale-up">
+        <img src="{{this.image}}" alt="Project Screenshot">
+        <div class="info">
+          <h3>{{this.heading}}</h3>
+          <span class="description">{{this.sub}}</span>
+          <a class="github" href="{{this.github}}">
+            <ion-icon name="logo-github"></ion-icon>
+          </a>
+          <a class="live" href="{{this.livesite}}">
+            <ion-icon name="link-outline"></ion-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</section>
