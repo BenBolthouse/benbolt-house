@@ -2,6 +2,7 @@ const { httpLogger } = require('./log');
 const config = require('./config');
 const connectLivereload = require('connect-livereload');
 const cookieParser = require('cookie-parser');
+const csurf = require('csurf');
 const express = require('express');
 const expressHbs = require('express-handlebars');
 const favicon = require('serve-favicon');
@@ -60,9 +61,11 @@ app.engine(
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(connectLivereload());
+app.use(express.json());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, staticDir)));
 app.use(express.urlencoded({ extended: false }));
+app.use(csurf({ cookie: true }));
+app.use(express.static(path.join(__dirname, staticDir)));
 app.use(favicon(path.join(__dirname, staticDir, 'favicon.ico')));
 app.use(httpLogger);
 
