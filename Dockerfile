@@ -9,11 +9,11 @@ COPY package*.json ./
 
 RUN npm i
 
-RUN webpack
-
 COPY . .
 
-RUN npx sass views/style.scss static/style.min.css --style compressed
+RUN npx webpack
+
+RUN npx sass views/style.scss dist/css/style.min.css --style compressed
 
 EXPOSE 5000
 
