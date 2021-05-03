@@ -152,6 +152,7 @@ article#home section#about {
                            'a b c d'
                            'bio bio skl skl';
       grid-template-rows: 11rem auto auto;
+      grid-template-columns: repeat(4, 1fr);
       align-content: stretch;
       .bio > div {
         // prettier-ignore
