@@ -1,0 +1,114 @@
+{
+  "title": "Ben Bolthouse",
+  "description":
+    "Ben Bolthouse is a web developer and junior software engineer located in Arizona. This is a collection of Ben's portfolio website",
+  "keywords": ["website", "developer", "arizona", "software", "engineer", "portfolio", "about me"],
+  "data": {
+    "about": {
+      "bio": {
+        "image": "images/me.jpg",
+        "heading": "Who's this handsome devil?",
+        "sub":
+          "I'm a web developer and a software engineer located in sunny Arizona. I'm passionate about creating engaging products that people love to use. I have some of my projects featured here, some that I have started and some that I have contributed to. Let's get in touch to talk about your next web project."
+      },
+      "skills": [
+        {
+          "heading": "languages",
+          "items": [
+            {
+              "title": "JavaScript",
+              "highlight": true
+            },
+            {
+              "title": "Python",
+              "highlight": true
+            },
+            {
+              "title": "HTML",
+              "highlight": false
+            },
+            {
+              "title": "CSS",
+              "highlight": false
+            },
+            {
+              "title": "C#",
+              "highlight": false
+            }
+          ]
+        },
+        {
+          "heading": "stacks & tech",
+          "items": [
+            {
+              "title": "Express",
+              "highlight": true
+            },
+            {
+              "title": "Flask",
+              "highlight": true
+            },
+            {
+              "title": ".NET Core Web API",
+              "highlight": true
+            },
+            {
+              "title": "Sequelize",
+              "highlight": true
+            },
+            {
+              "title": "SQLAlchemy",
+              "highlight": true
+            },
+            {
+              "title": "Postgres",
+              "highlight": true
+            },
+            {
+              "title": "Mongo",
+              "highlight": false
+            }
+          ]
+        }
+      ],
+      "cards": [
+        {
+          "id": "card-a",
+          "ionicon": "chatbubbles-sharp",
+          "heading": "Lorem Ipsum",
+          "sub": "Lorem ipsum dolor sit amet"
+        },
+        {
+          "id": "card-b",
+          "ionicon": "chatbubbles-sharp",
+          "heading": "Lorem Ipsum",
+          "sub": "Lorem ipsum dolor sit amet"
+        },
+        {
+          "id": "card-c",
+          "ionicon": "chatbubbles-sharp",
+          "heading": "Lorem Ipsum",
+          "sub": "Lorem ipsum dolor sit amet"
+        },
+        {
+          "id": "card-d",
+          "ionicon": "chatbubbles-sharp",
+          "heading": "Lorem Ipsum",
+          "sub": "Lorem ipsum dolor sit amet"
+        }
+      ]
+    },
+    "work": {
+      "projects": [
+        {
+          "id": "project-a",
+          "image": "images/fire-money_v1.jpg",
+          "heading": "Fire Money",
+          "sub": "This project is super duper cool",
+          "github": "https://github.com/blavian/FireMoney",
+          "livesite": "https://firemoney.herokuapp.com/"
+        }
+      ]
+    }
+  }
+}
