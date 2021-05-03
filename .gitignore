@@ -135,6 +135,3 @@ jspm_packages
 
 # Ignore graphic design assets
 graphics
-
-# Ignore local data tests using json
-data
