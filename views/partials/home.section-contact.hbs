@@ -2,7 +2,9 @@
   <div class="content">
     <h2 animate="translate-y-up-bounce">Let's Keep In Touch!</h2>
     <p animate="translate-y-up-bounce">Send me a message and I'll get back to you, usually in less than a day.</p>
-    <form animate="scale-up" action="/" method="post">
+    <div id="contactFormSuccess" class="hidden">Thank you! Your message was received.</div>
+    <div id="contactFormFetching" class="hidden">FETCH</div>
+    <form animate="scale-up" action="/" method="post" id="contactForm">
       <div class="email">
         <input type="email" name="email" placeholder="email" required>
       </div>
