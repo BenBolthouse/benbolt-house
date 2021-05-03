@@ -1,8 +1,8 @@
 const { google } = require('googleapis');
 const { googleSheetId } = require('../config');
 const { jwtClient } = require('../config/google');
-const { home } = require('../data');
 const csurf = require('csurf')({ cookie: true });
+const home = require('../data/home.json');
 const Page = require('../lib/Page');
 const router = require('express').Router();
 
@@ -25,22 +25,32 @@ router.post('/', csurf, async (req, res, next) => {
     name,
     body,
   } = req.body;
-  const spreadsheet = sheets.spreadsheets.values.get(
-    {
-      spreadsheetId: googleSheetId,
-      auth: jwtClient,
-      range: 'contacts',
-    },
-    (err, response) => {
-      if (err) {
-        return next(err);
-      }
-      const { values } = response.data;
-      const id = parseInt(values[values.length - 1][0], 10) + 1;
-      return true;
-    },
-  );
-  return res.redirect('/');
+  const params = {
+    spreadsheetId: googleSheetId,
+    auth: jwtClient,
+    range: 'contacts',
+  };
+  const get = cb =>
+    sheets.spreadsheets.values.get(params).then(
+      (result) => {
+        cb(result.data.values);
+      },
+      err => next(err),
+    );
+  const update = values =>
+    sheets.spreadsheets.values
+      .update({
+        ...params,
+        valueInputOption: 'USER_ENTERED',
+        resource: {
+          values: [...values, ['XXX', email, phone, name, body]],
+        },
+      })
+      .then(
+        result => true,
+        err => next(err),
+      );
+  get(update);
 });
 
 module.exports = router;
