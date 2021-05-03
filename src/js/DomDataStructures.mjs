@@ -11,7 +11,6 @@ export class Page extends LinkedList {
     super();
     this.id = element.id;
     this.element = element;
-    console.log('Page', this);
   }
 }
 
@@ -25,7 +24,6 @@ export class Article extends LinkedList {
     this.element = element;
     this.currentId = null;
     this.sectionLinks = element.querySelectorAll('[data-section-link]');
-    console.log('Article', this);
 
     // handles the show and hide behavior of the navigation element
     const navs = this.element.querySelectorAll('nav');
@@ -44,7 +42,6 @@ export class Article extends LinkedList {
       const desktop = window.innerWidth > 768;
       const pad = 300;
       const scroll = window.scrollY;
-      // console.log('window.scrollY', scroll);
       let prev = this.head;
       let curr = this.head ? this.head.next : null;
       if (!prev) {
@@ -116,6 +113,5 @@ export class Section {
     this.id = element.id;
     this.element = element;
     this.next = null;
-    console.log('Section', this);
   }
 }
