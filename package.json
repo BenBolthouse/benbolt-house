@@ -24,6 +24,7 @@
     "sass": "^1.32.8",
     "serve-favicon": "^2.4.5",
     "webpack": "^5.36.2",
+    "webpack-cli": "^4.6.0",
     "winston": "^3.3.3"
   },
   "repository": {
