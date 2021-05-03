@@ -31,14 +31,14 @@ article#home section#about {
         .badge {
           margin: 0 auto 1rem;
           border-radius: 50%;
-          background: linear-gradient(global.$color-primary-off-2, global.$color-primary-off);
-          width: 4rem;
-          height: 4rem;
+          background: linear-gradient(global.$color-a, global.$color-a-2);
+          width: 8rem;
+          height: 8rem;
           padding: 0.75rem;
           ion-icon {
             color: white;
             display: block;
-            font-size: 2.5rem;
+            font-size: 6rem;
             margin: 0 auto;
           }
         }

@@ -24,16 +24,18 @@ textarea {
   box-sizing: border-box;
   font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
   font-size: (18rem / 16);
-  line-height: 2.5rem;
-  min-height: 2.5rem;
+  line-height: 1.5rem;
+  height: 4rem;
   outline: none;
-  padding: 0 0.5rem;
+  padding: 1rem;
   &:focus {
     border: 1px solid global.$col-info-dk;
     box-shadow: 0 0 0 2px global.$col-info-lt;
   }
 }
 textarea {
+  height: auto;
+  min-height: 4rem;
   resize: none;
 }
 button {
@@ -124,7 +126,7 @@ a {
   outline: none;
 }
 #obfuscate {
-  $background-color: red;
+  $background-color: global.$col-a-1;
   position: absolute;
   top: 0;
   left: 0;

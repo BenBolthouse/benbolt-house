@@ -1,15 +1,13 @@
 {
   "title": "Ben Bolthouse",
-  "description":
-    "Ben Bolthouse is a web developer and junior software engineer located in Arizona. This is a collection of Ben's portfolio website",
+  "description": "Ben Bolthouse is a web developer and junior software engineer located in Arizona. This is a collection of Ben's portfolio website",
   "keywords": ["website", "developer", "arizona", "software", "engineer", "portfolio", "about me"],
   "data": {
     "about": {
       "bio": {
         "image": "images/me.jpg",
-        "heading": "Who's this handsome devil?",
-        "sub":
-          "I'm a web developer and a software engineer located in sunny Arizona. I'm passionate about creating engaging products that people love to use. I have some of my projects featured here, some that I have started and some that I have contributed to. Let's get in touch to talk about your next web project."
+        "heading": "Who Am I?",
+        "sub": "I'm a junior software engineer located in sunny Arizona. I'm passionate about creating engaging products that people love to use. <a data-section-link=\"contact\" tabindex=\"-1\">Let's get in touch</a> and talk about your next project."
       },
       "skills": [
         {
@@ -38,7 +36,7 @@
           ]
         },
         {
-          "heading": "stacks & tech",
+          "heading": "stack & tech",
           "items": [
             {
               "title": "Express",
@@ -61,12 +59,37 @@
               "highlight": true
             },
             {
-              "title": "Postgres",
+              "title": "Entity Framework",
               "highlight": true
             },
             {
-              "title": "Mongo",
-              "highlight": false
+              "title": "Websockets",
+              "highlight": true
+            }
+          ]
+        },
+        {
+          "heading": "tools & deployment",
+          "items": [
+            {
+              "title": "VS Code",
+              "highlight": true
+            },
+            {
+              "title": "Visual Studio",
+              "highlight": true
+            },
+            {
+              "title": "Docker Desktop",
+              "highlight": true
+            },
+            {
+              "title": "AWS",
+              "highlight": true
+            },
+            {
+              "title": "Microsoft Azure",
+              "highlight": true
             }
           ]
         }
@@ -74,27 +97,27 @@
       "cards": [
         {
           "id": "card-a",
-          "ionicon": "chatbubbles-sharp",
-          "heading": "Lorem Ipsum",
-          "sub": "Lorem ipsum dolor sit amet"
+          "ionicon": "layers-sharp",
+          "heading": "Full Stack",
+          "sub": "Proven excellence in designing & building all layers of applications"
         },
         {
           "id": "card-b",
-          "ionicon": "chatbubbles-sharp",
-          "heading": "Lorem Ipsum",
-          "sub": "Lorem ipsum dolor sit amet"
+          "ionicon": "people-sharp",
+          "heading": "Agile & Scrum",
+          "sub": "Excellent understanding of the software development cycle"
         },
         {
           "id": "card-c",
-          "ionicon": "chatbubbles-sharp",
-          "heading": "Lorem Ipsum",
-          "sub": "Lorem ipsum dolor sit amet"
+          "ionicon": "book-sharp",
+          "heading": "Incessant Learning",
+          "sub": "Insatiable curiosity about the ever-evolving world of tech"
         },
         {
           "id": "card-d",
-          "ionicon": "chatbubbles-sharp",
-          "heading": "Lorem Ipsum",
-          "sub": "Lorem ipsum dolor sit amet"
+          "ionicon": "pencil-sharp",
+          "heading": "Applied Knowledge",
+          "sub": "Demonstrated success in rapidly learning and developing in new languages"
         }
       ]
     },
@@ -104,9 +127,25 @@
           "id": "project-a",
           "image": "images/fire-money_v1.jpg",
           "heading": "Fire Money",
-          "sub": "This project is super duper cool",
+          "sub": "Budget app for tracking recurring expenses.",
           "github": "https://github.com/blavian/FireMoney",
           "livesite": "https://firemoney.herokuapp.com/"
+        },
+        {
+          "id": "project-b",
+          "image": "images/nicebytes_v1.jpg",
+          "heading": "Nice Bytes",
+          "sub": "An app for rating, reviewing & sharing local restaurants.",
+          "github": "https://github.com/BenBolthouse/nice-bytes",
+          "livesite": "https://nice-bytes.herokuapp.com/"
+        },
+        {
+          "id": "project-c",
+          "image": "images/surprise-me_v1.jpg",
+          "heading": "Surprise Me",
+          "sub": "Social app providing in app purchases with an interesting twist.",
+          "github": "https://github.com/BenBolthouse/surprise-me-app",
+          "livesite": "https://bbolthouse-surprise-me.herokuapp.com/"
         }
       ]
     }

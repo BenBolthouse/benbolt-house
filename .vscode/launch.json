@@ -7,7 +7,30 @@
     {
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
-      "name": "Nodemon",
+      "name": "Nodemon: Development",
+      "envFile": "${workspaceFolder}/.env.development",
+      "program": "${workspaceFolder}/bin/run",
+      "request": "launch",
+      "restart": true,
+      "runtimeExecutable": "nodemon",
+      "runtimeArgs": [
+        "-r",
+        "dotenv/config"
+      ],
+      "args": [
+        "-e",
+        "hbs,scss,js,json,mjs"
+      ],
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "pwa-node"
+    },
+    {
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "name": "Nodemon: Production",
+      "envFile": "${workspaceFolder}/.env.production",
       "program": "${workspaceFolder}/bin/run",
       "request": "launch",
       "restart": true,

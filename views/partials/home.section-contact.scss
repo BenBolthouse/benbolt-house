@@ -4,6 +4,7 @@ article#home section#contact {
   background-color: global.$col-a-1;
   .content {
     place-content: center center;
+    grid-template-rows: auto 3rem 5rem auto;
     h2 {
       color: global.$col-a-4;
       opacity: 0;
@@ -14,19 +15,22 @@ article#home section#contact {
     }
     p {
       opacity: 0;
-      margin: 0 2rem 2rem;
+      margin: 0 2rem 1.5rem;
       text-align: center;
     }
     form {
       display: grid;
       // prettier-ignore
-      grid-template-areas: 'eml eml'
-                           'nam phn'
-                           'bdy bdy'
-                           'snd snd';
+      grid-row: -2 / -1;
+      grid-template-areas:
+        'eml eml'
+        'nam phn'
+        'bdy bdy'
+        'snd snd';
       opacity: 0;
+      position: relative;
       max-width: 56rem;
-      > * {
+      > .form-group {
         margin: 0 0.5rem 1rem;
       }
       .email {
@@ -44,6 +48,37 @@ article#home section#contact {
         margin: 0 auto;
         width: 12rem;
       }
+      #contactFormFetching {
+        background-color: global.$col-a-1;
+        opacity: 0.5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        &.hidden {
+          display: none;
+        }
+      }
+      *:disabled {
+        color: white;
+        cursor: default;
+        background-color: white;
+        opacity: 0.1;
+      }
+    }
+    #contactFormSuccess,
+    #contactFormFailure {
+      text-align: center;
+      &.hidden {
+        display: none;
+      }
+    }
+    #contactFormSuccess {
+      color: global.$col-success-dk;
+    }
+    #contactFormFailure {
+      color: white;
     }
   }
   &.seen .content h2 {
@@ -57,8 +92,5 @@ article#home section#contact {
   &.seen .content form {
     animation-delay: 0.5s;
     -webkit-animation-delay: 0.5s;
-  }
-  .hidden {
-    visibility: hidden;
   }
 }

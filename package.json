@@ -6,7 +6,7 @@
     "start": "node ./bin/run",
     "dev": "nodemon -r dotenv/config ./bin/run -e hbs,scss,js,json,mjs",
     "build": "webpack",
-    "sass": "sass --watch views/style.scss src/css/style.min.css --style compressed"
+    "sass": "sass --watch views/style.scss dist/css/style.min.css --style compressed"
   },
   "dependencies": {
     "colors": "^1.4.0",
@@ -23,6 +23,7 @@
     "prismic-javascript": "~1.4.0",
     "sass": "^1.32.8",
     "serve-favicon": "^2.4.5",
+    "webpack": "^5.36.2",
     "winston": "^3.3.3"
   },
   "repository": {

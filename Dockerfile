@@ -9,6 +9,8 @@ COPY package*.json ./
 
 RUN npm i
 
+RUN webpack
+
 COPY . .
 
 RUN npx sass views/style.scss static/style.min.css --style compressed

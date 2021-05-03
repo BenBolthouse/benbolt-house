@@ -1,20 +1,21 @@
 <section data-section data-orientation data-viewport-height id="contact">
   <div class="content">
-    <h2 animate="translate-y-up-bounce">Let's Keep In Touch!</h2>
-    <p animate="translate-y-up-bounce">Send me a message and I'll get back to you, usually in less than a day.</p>
-    <div id="contactFormSuccess" class="hidden">Thank you! Your message was received.</div>
-    <div id="contactFormFetching" class="hidden">FETCH</div>
+    <h2 animate="translate-y-up-bounce">Let's get in touch</h2>
+    <p animate="translate-y-up-bounce">Leave a message and I'll get back to you.</p>
+    <span id="contactFormSuccess" class="hidden">Your message was received</span>
+    <span id="contactFormFailure" class="hidden">Refresh the page and try again</span>
     <form animate="scale-up" action="/" method="post" id="contactForm">
-      <div class="email">
+      <div id="contactFormFetching" class="hidden"></div>
+      <div class="form-group email">
         <input type="email" name="email" placeholder="email" required>
       </div>
-      <div class="name">
+      <div class="form-group name">
         <input type="text" name="name" placeholder="name">
       </div>
-      <div class="phone">
+      <div class="form-group phone">
         <input type="text" name="phone" placeholder="phone">
       </div>
-      <div class="body">
+      <div class="form-group body">
         <textarea name="body" placeholder="message" required></textarea>
       </div>
       <input type="hidden" name="_csrf" value="{{csrf}}">

@@ -135,3 +135,6 @@ jspm_packages
 
 # Ignore graphic design assets
 graphics
+
+# Ignore all variants of env files
+.env*
