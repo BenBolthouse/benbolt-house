@@ -1,6 +1,17 @@
 <section data-section data-orientation data-viewport-height id="about">
   <div class="content">
     <h2 animate="scale-up">About</h2>
+    {{#each data.about.cards}}
+      <div class="card {{this.id}}">
+        <div animate="scale-up">
+          <div class="badge">
+            <ion-icon name="{{this.ionicon}}"></ion-icon>
+          </div>
+          <h3>{{this.heading}}</h3>
+          <p>{{this.sub}}</p>
+        </div>
+      </div>
+    {{/each}}
     <div class="bio">
       <div animate="translate-y-up-bounce">
         <img src="{{data.about.bio.image}}" alt="me">
@@ -25,16 +36,5 @@
         {{/each}}
       </div>
     </div>
-    {{#each data.about.cards}}
-      <div class="card {{this.id}}">
-        <div animate="scale-up">
-          <div class="badge">
-            <ion-icon name="{{ionicon}}"></ion-icon>
-          </div>
-          <h3>{{this.heading}}</h3>
-          <p>{{this.sub}}</p>
-        </div>
-      </div>
-    {{/each}}
   </div>
 </section>
